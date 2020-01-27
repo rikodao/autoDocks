@@ -1,0 +1,56 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "sample.proto",
+    "version": "version not set"
+  },
+  "host": "endpointsportal.avid-elevator-257905.cloud.goog",
+  "x-google-endpoints":{
+    "name": "endpointsportal.avid-elevator-257905.cloud.goog",
+    "target": "35.243.108.141"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/somethings": {
+      "get": {
+        "summary": "APIの説明を記載する",
+        "operationId": "Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Something"
+            }
+          }
+        },
+        "tags": [
+          "GetSomething"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Something": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "ここにコメント入れるとフィールドの説明になる"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "I am something"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+steps:
+# - name: 'znly/protoc'
+#   args: ["-I.", "--swagger_out=.", "sample.proto"]
+- name: gcr.io/cloud-builders/gcloud
+  args: ['endpoints', 'services', 'deploy', 'sample.swagger.json']
+
+artifacts:
+  objects:
+    location: 'gs://$_GCS_BUCKETS/'
+    paths: ['sample.swagger.json']

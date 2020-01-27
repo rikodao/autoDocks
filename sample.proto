@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+service autoDocks {
+  rpc GetSomething(FooRequest) returns (FooResponse);
+}
+
+message Empty {
+}
+message Query {
+    string query = 1;
+}
+/* I am something */
+message Something {
+    /* ここにコメント入れるとフィールドの説明になる */
+    string id = 1;
+    string name = 2;
+}
+
+/* The message for list of messages. */
+message Somethings {
+    repeated Something somethings = 1; 
+}
+
+service GetSomething {
+    /* APIの説明を記載する */
+    rpc Get (Empty) returns (Something) {
+        option(google.api.http) = {
+            get: "/api/v1/somethings"
+        };
+    }
+}
