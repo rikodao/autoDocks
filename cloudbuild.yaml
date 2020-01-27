@@ -1,10 +1,26 @@
 steps:
+- name: 'test'
+  args: ["-I.", "--swagger_out=.", "sample.proto"]
+
+
+
+# - name: 'test'
+#   entrypoint: 'sh'
+#   args:
+#   - '-c'
+#   - |
+#     protoc -I. --swagger_out=.  sample.proto;
+
+
+    
+# - name: 'golang'
+#   args: [get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger]
 # - name: 'znly/protoc'
 #   args: ["-I.", "--swagger_out=.", "sample.proto"]
-- name: gcr.io/cloud-builders/gcloud
-  args: ['endpoints', 'services', 'deploy', 'sample.swagger.json']
+# - name: gcr.io/cloud-builders/gcloud
+#   args: ['endpoints', 'services', 'deploy', 'sample.swagger.json']
 
-artifacts:
-  objects:
-    location: 'gs://$_GCS_BUCKETS/'
-    paths: ['sample.swagger.json']
+# artifacts:
+#   objects:
+#     location: 'gs://$_GCS_BUCKETS/'
+#     paths: ['sample.swagger.json']

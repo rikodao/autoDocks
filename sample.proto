@@ -1,10 +1,13 @@
 syntax = "proto3";
 
 import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
 
-service autoDocks {
-  rpc GetSomething(FooRequest) returns (FooResponse);
-}
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    host: "test.endpoints.ca-oiso-test.cloud.goog";
+};
+
+
 
 message Empty {
 }
@@ -20,7 +23,7 @@ message Something {
 
 /* The message for list of messages. */
 message Somethings {
-    repeated Something somethings = 1; 
+    repeated Something somethings = 1;
 }
 
 service GetSomething {
